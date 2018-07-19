@@ -70,10 +70,10 @@ const StyleSheet = {
  *   new webpack.DefinePlugin({
  *     "typeof window": JSON.stringify("object")
  *   })
+ * 
+ * Fork update: We remove this logic, because our server-side rendering setup has window defined.
  */
-const StyleSheetServer = typeof window !== 'undefined'
-    ? null
-    : {
+const StyleSheetServer = {
         renderStatic(renderFunc /* : RenderFunction */) {
             reset();
             startBuffering();
